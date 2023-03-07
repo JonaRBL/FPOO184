@@ -3,14 +3,14 @@ from tkinter import *
 from funciones import cambiar_interfaz
 
 BIBLIOTECA = Tk()
-BIBLIOTECA.title("edificio A")
+BIBLIOTECA.title("Biblioteca")
 BIBLIOTECA.geometry("600x400")
 
 #2.Agregamos los Frames
 seccion1 = Frame(BIBLIOTECA, bg = "red")
 seccion1.pack(expand = True, fill = 'both')
 
-titulo = Label (seccion1, text = "Edificio a", bg = "White" ,width=50)
+titulo = Label (seccion1, text = "Biblioteca", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 

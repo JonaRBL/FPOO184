@@ -3,14 +3,14 @@ from tkinter import *
 from funciones import cambiar_interfaz
 
 TALLERES = Tk()
-TALLERES.title("edificio A")
+TALLERES.title("Talleres")
 TALLERES.geometry("600x400")
 
 #2.Agregamos los Frames
 seccion1 = Frame(TALLERES, bg = "red")
 seccion1.pack(expand = True, fill = 'both')
 
-titulo = Label (seccion1, text = "Edificio a", bg = "White" ,width=50)
+titulo = Label (seccion1, text = "Talleres", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 

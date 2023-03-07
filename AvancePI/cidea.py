@@ -3,14 +3,14 @@ from tkinter import *
 from funciones import cambiar_interfaz
 
 CIDEA = Tk()
-CIDEA.title("edificio A")
+CIDEA.title("CIDEA")
 CIDEA.geometry("600x400")
 
 #2.Agregamos los Frames
 seccion1 = Frame(CIDEA, bg = "red")
 seccion1.pack(expand = True, fill = 'both')
 
-titulo = Label (seccion1, text = "Edificio a", bg = "White" ,width=50)
+titulo = Label (seccion1, text = "CIDEA", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 

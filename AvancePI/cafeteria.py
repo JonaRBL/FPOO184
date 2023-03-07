@@ -3,14 +3,14 @@ from tkinter import *
 from funciones import cambiar_interfaz
 
 CAFETERIA = Tk()
-CAFETERIA.title("edificio A")
+CAFETERIA.title("Cafeteria")
 CAFETERIA.geometry("600x400")
 
 #2.Agregamos los Frames
 seccion1 = Frame(CAFETERIA, bg = "red")
 seccion1.pack(expand = True, fill = 'both')
 
-titulo = Label (seccion1, text = "Edificio a", bg = "White" ,width=50)
+titulo = Label (seccion1, text = "Cafeteria", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 

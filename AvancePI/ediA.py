@@ -3,14 +3,14 @@ from tkinter import *
 from funciones import cambiar_interfaz
 
 edifA = Tk()
-edifA.title("edificio A")
+edifA.title("Edificio A")
 edifA.geometry("600x400")
 
 #2.Agregamos los Frames
 seccion1 = Frame(edifA, bg = "red")
 seccion1.pack(expand = True, fill = 'both')
 
-titulo = Label (seccion1, text = "Edificio a", bg = "White" ,width=50)
+titulo = Label (seccion1, text = "Edificio A", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 
