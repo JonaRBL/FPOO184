@@ -1,7 +1,6 @@
 from tkinter import Tk,Frame, PhotoImage,Menu
 from tkinter import *
 from funciones import *
-from ediA import edifA
 
 edLt1 = Tk()
 edLt1.title("LT1")
