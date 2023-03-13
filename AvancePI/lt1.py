@@ -1,6 +1,7 @@
-from tkinter import Tk,Frame, PhotoImage,Menu
+from tkinter import Tk,Frame, PhotoImage, Menu
 from tkinter import *
-from funciones import *
+from ediA import *
+from PIL import ImageTk, Image
 
 edLt1 = Tk()
 edLt1.title("LT1")
@@ -22,15 +23,30 @@ contacto = Label (seccion1, text = "Contacto\nCarretera Estatal 420 SN, El Marqu
 contacto.place(x = -250,y = 335)
 contacto.configure(font=("Times New Roman", 10), justify = "left")
 
-img = PhotoImage(file="UPQ.png")
-imagi = Label(seccion1, image=img)
-imagi.place(x=300,y=50)
+canv = Canvas(seccion1, width=250, height=250, bg='white')
+canv.place(x=300,y=50)
+img = Image.open("C:\\Users\\jonat\\OneDrive\\Documentos\\UPQ\\5to cuatri\\UPQ Fundamentos de Programación Orientada a Objetos\\TRABAJOS\\P2\\FPOO184\\AvancePI\\bibliot.jpg")
+img = img.resize((250,250))
+imag = ImageTk.PhotoImage(img)
+
+canv.create_image(1,1,anchor=NW, image=imag)#20, 20, anchor=NW, image=img)
+
+def Salir(edLt1):
+    edLt1.destroy()
+        
+def CambiarVentanaLT1A():
+    edLt1.destroy()
+    ediA()
+
+#img = PhotoImage(file="UPQ.png")
+#imagi = Label(seccion1, image=img)
+#imagi.place(x=300,y=50)
 
 menubar = Menu(seccion1)
 edLt1.config(menu=menubar)
 file_menu = Menu(menubar, tearoff=False)
-file_menu.add_command( label="Edificio A")
-file_menu.add_command( label="Edificio B")
+file_menu.add_command( label="Edificio A", command=CambiarVentanaLT1A)
+file_menu.add_command( label="Edificio B", )
 file_menu.add_command( label="Edificio C")
 file_menu.add_command( label="Biblioteca")
 file_menu.add_command( label="CAPTA")
@@ -39,6 +55,9 @@ file_menu.add_command( label="Talleres")
 file_menu.add_command( label="Cafeteria")
 file_menu.add_separator()
 file_menu.add_command(label="Regresar a la interfaz principal")
+file_menu.add_command(label="Salir", command=Salir)
 menubar.add_cascade(label='Edificios', menu=file_menu)
+
+
 
 edLt1.mainloop()

@@ -1,6 +1,7 @@
 from tkinter import Tk,Frame, PhotoImage,Menu
 from tkinter import *
 from funciones import cambiar_interfaz
+from PIL import ImageTk, Image
 
 BIBLIOTECA = Tk()
 BIBLIOTECA.title("Biblioteca")
@@ -14,7 +15,7 @@ titulo = Label (seccion1, text = "Biblioteca", bg = "White" ,width=50)
 titulo.place(x = 0,y = 0)
 titulo.configure(font=("Times New Roman", 16))
 
-info = Label(seccion1,bg="red", text = "En este edificio se encuentran\nalgunos de los laboratorios de\nmanufactura, al igual que la\nsala 3D en donde se realizan\nconferencias, presentaciones de\nproyectos integradores entre\notras cosas, tambien en este\nedificio a finales del cuatrimestre\nse hacen las presentaciones de los\ntalleres cocurriculares de pintura,\nescultura y arte popular mexicano")
+info = Label(seccion1,bg="red", text = "El edificio cuenta con la tienda\nUPQ, donde se puede adquirir\nmercancía de la universidad tanto\ncomo materiales de papelería, así\nmismo se encuentran Servicios\nEscolares, mientras que en la\nparte superior el espacio esta\ndedicado    para aulas escolares.")
 info.place(x = 10,y = 50)
 info.configure(font=("Times New Roman", 16), justify ="left")
 
@@ -22,9 +23,13 @@ contacto = Label (seccion1, text = "Contacto\nCarretera Estatal 420 SN, El Marqu
 contacto.place(x = -250,y = 335)
 contacto.configure(font=("Times New Roman", 10), justify = "left")
 
-img = PhotoImage(file="UPQ.png")
-imagi = Label(seccion1, image=img)
-imagi.place(x=300,y=50)
+canv = Canvas(seccion1, width=250, height=250, bg='white')
+canv.place(x=300,y=50)
+img = Image.open("C:\\Users\\jonat\\OneDrive\\Documentos\\UPQ\\5to cuatri\\UPQ Fundamentos de Programación Orientada a Objetos\\TRABAJOS\\P2\\FPOO184\\AvancePI\\bibliot.jpg")
+img = img.resize((250,250))
+imag = ImageTk.PhotoImage(img)
+
+canv.create_image(1,1,anchor=NW, image=imag)#20, 20, anchor=NW, image=img)
 
 menubar = Menu(seccion1)
 BIBLIOTECA.config(menu=menubar)
