@@ -37,11 +37,11 @@ carr.grid(row=4,column=1)
 #matri = Matricula(nom, apPa, apMa, anNa, carr)
     
 def genemat():
-    entrynom = nom.get()
-    entryapellipa =  apPa.get()
-    entryapellima = apMa.get()
+    entrynom = nom.get().upper()
+    entryapellipa =  apPa.get().upper()
+    entryapellima = apMa.get().upper()
     entryanona = anNa.get()
-    entrycarrera = carr.get()
+    entrycarrera = carr.get().upper()
     matri = Matricula(entrynom, entryapellipa, entryapellima, entryanona, entrycarrera)
     matri.genmat()   
     

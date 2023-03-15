@@ -12,7 +12,7 @@ class Matricula:
         anoActu = str(2023)
         anoActu = str(anoActu)[-2:]
         anonac = str(self.anonacimiento)[-2:]
-        letrasApellidos = str(self.apellidomaterno)[:3] + str(self.apellidopaterno)[:3]
+        letrasApellidos = str(self.apellidopaterno)[:3] + str(self.apellidomaterno)[:3]
         letraNombre = str(self.nombre)[0]
         letrasCarrera = str(self.carrera)[:3]
         digitosAleatorios = str(random.randint(100, 999))
