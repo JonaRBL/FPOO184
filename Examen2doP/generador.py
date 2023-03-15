@@ -1,5 +1,5 @@
 import random
-from datetime import datetime
+from tkinter import messagebox
 class Matricula:
     def __init__(self, nom, apellpa, apellma, anna, carr):
         self.nombre = nom
@@ -9,14 +9,12 @@ class Matricula:
         self.carrera = carr
     
     def genmat(self):
-        anoActu = datetime.now().year
+        anoActu = str(2023)
         anoActu = str(anoActu)[-2:]
         anonac = str(self.anonacimiento)[-2:]
-        letrasApellidos = self.apellidomaterno[:3] + self.apellidopaterno[:3]
-        letraNombre = self.nombre[0]
-        letrasCarrera = self.carrera[:3]
+        letrasApellidos = str(self.apellidomaterno)[:3] + str(self.apellidopaterno)[:3]
+        letraNombre = str(self.nombre)[0]
+        letrasCarrera = str(self.carrera)[:3]
         digitosAleatorios = str(random.randint(100, 999))
-        matricula = letrasCarrera + anoActu + anonac + letraNombre + letrasApellidos + digitosAleatorios
-        return matricula
-    
-    ''''''
+        matricula = str(letrasCarrera) + str(anoActu) + str(anonac) + str(letraNombre) + str(letrasApellidos) + str(digitosAleatorios)
+        msg = messagebox.showinfo("Generada", str(matricula))
