@@ -34,7 +34,7 @@ carrera.grid(row=4,column=0)
 carr = Entry(ventana)
 carr.grid(row=4,column=1)
 
-matri = Matricula(nom, apPa, apMa, anNa, carr)
+#matri = Matricula(nom, apPa, apMa, anNa, carr)
     
 def genemat():
     entrynom = nom.get()
@@ -42,6 +42,7 @@ def genemat():
     entryapellima = apMa.get()
     entryanona = anNa.get()
     entrycarrera = carr.get()
+    matri = Matricula(entrynom, entryapellipa, entryapellima, entryanona, entrycarrera)
     matri.genmat()   
     
 generamat = Button(ventana, text="Generar matricula", bg="yellow", command = genemat)
