@@ -40,7 +40,7 @@ txtCor = Entry(pestana1, textvariable = varCor).pack()
 
 varCon = tk.StringVar()
 lblCon = Label(pestana1, text = "Contraseña: ").pack()
-txtCon = Entry(pestana1, textvariable = varCon).pack()
+txtCon = Entry(pestana1, textvariable = varCon, show = "*").pack()
 
 btnGuardar = Button(pestana1, text = "Guardar Usuario", command = ejecutaInsert).pack()
 
