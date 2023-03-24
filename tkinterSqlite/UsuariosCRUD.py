@@ -2,6 +2,17 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 
+#importamos las clases creadas a la ventana
+from controladorBD import *
+
+#Creamos un objeto de tipo controlador
+controlador = controladorBD()
+
+#proceder a guardar usuarios usando el metodo guardarUsuario() del objeto controlador
+
+def ejecutaInsert():
+    controlador.guardarUsuario(varNom.get(), varCor.get(), varCon.get())
+
 ventana = Tk()
 ventana.title("CRUD usuarios")
 ventana.geometry("500x300")
@@ -31,7 +42,7 @@ varCon = tk.StringVar()
 lblCon = Label(pestana1, text = "Contraseña: ").pack()
 txtCon = Entry(pestana1, textvariable = varCon).pack()
 
-btnGuardar = Button(pestana1, text = "Guardar Usuario").pack()
+btnGuardar = Button(pestana1, text = "Guardar Usuario", command = ejecutaInsert).pack()
 
 #accedemos al panel para agregar las pestañas
 panel.add(pestana1, text = "Formulario de usuarios")
