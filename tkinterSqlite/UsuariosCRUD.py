@@ -20,7 +20,8 @@ def ejecutaSelect():
         cadena = str(usu[0])+" "+ usu[1]+" "+ usu[2]+" "+ str(usu[3])
     
     if(rsUsuario):
-        print(cadena)
+        #print(cadena)
+        textBus.insert("0.0", cadena)
     else:
         messagebox.showinfo("No encontrado", "Usuario no registardo en la BD")
     
@@ -65,7 +66,8 @@ txtid = Entry(pestana2, textvariable = varBus).pack()
 btnBusqueda = Button(pestana2, text = "Buscar", command = ejecutaSelect).pack()
 
 subBus = Label(pestana2, text = "Registrado:", fg = "blue", font = ("Modern", 18)).pack()
-textBus = tk.Text.insert(pestana2, height = 5, width = 52).pack()
+textBus = tk.Text(pestana2, height = 5, width = 52)
+textBus.pack()
 
 #accedemos al panel para agregar las pestañas
 panel.add(pestana1, text = "Formulario de usuarios")
