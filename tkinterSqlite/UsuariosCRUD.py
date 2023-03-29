@@ -9,10 +9,21 @@ from controladorBD import *
 controlador = controladorBD()
 
 #proceder a guardar usuarios usando el metodo guardarUsuario() del objeto controlador
-
 def ejecutaInsert():
     controlador.guardarUsuario(varNom.get(), varCor.get(), varCon.get())
 
+#funcion para buscar un usuario
+def ejecutaSelect():
+    rsUsuario = controlador.consultaUsuario(varBus.get())
+    
+    for usu in rsUsuario:
+        cadena = str(usu[0])+" "+ usu[1]+" "+ usu[2]+" "+ str(usu[3])
+    
+    if(rsUsuario):
+        print(cadena)
+    else:
+        messagebox.showinfo("No encontrado", "Usuario no registardo en la BD")
+    
 ventana = Tk()
 ventana.title("CRUD usuarios")
 ventana.geometry("500x300")
@@ -43,6 +54,18 @@ lblCon = Label(pestana1, text = "Contraseña: ").pack()
 txtCon = Entry(pestana1, textvariable = varCon, show = "*").pack()
 
 btnGuardar = Button(pestana1, text = "Guardar Usuario", command = ejecutaInsert).pack()
+
+#PESTAÑA2:Buscar usuario
+titulo2 = Label(pestana2, text = "Buscar Usuario", fg = "red", font = ("Modern", 18)).pack()
+
+varBus = tk.StringVar()
+lblid = Label(pestana2, text = "Identificador de usuario: ").pack()
+txtid = Entry(pestana2, textvariable = varBus).pack()
+
+btnBusqueda = Button(pestana2, text = "Buscar", command = ejecutaSelect).pack()
+
+subBus = Label(pestana2, text = "Registrado:", fg = "blue", font = ("Modern", 18)).pack()
+textBus = tk.Text.insert(pestana2, height = 5, width = 52).pack()
 
 #accedemos al panel para agregar las pestañas
 panel.add(pestana1, text = "Formulario de usuarios")
