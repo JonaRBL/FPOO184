@@ -24,7 +24,15 @@ def ejecutaSelect():
         textBus.insert("0.0", cadena)
     else:
         messagebox.showinfo("No encontrado", "Usuario no registardo en la BD")
+
+def ejecutaConsulta():
+    consult = controlador.consultasUsuarios()
     
+    tabla.delete(*tabla.get_children())
+    for user in consult:
+        tabla.insert("", tk.END, text = "", values = user) 
+    
+        
 ventana = Tk()
 ventana.title("CRUD usuarios")
 ventana.geometry("500x300")
@@ -68,6 +76,27 @@ btnBusqueda = Button(pestana2, text = "Buscar", command = ejecutaSelect).pack()
 subBus = Label(pestana2, text = "Registrado:", fg = "blue", font = ("Modern", 18)).pack()
 textBus = tk.Text(pestana2, height = 5, width = 52)
 textBus.pack()
+
+#PESTAÑA3: Consultar usuarios
+titulo3 = Label(pestana3, text = "Consultar Usuarios", fg = "red", font = ("Modern", 18)).pack()
+
+btnConsulta = Button(pestana3, text = "Consulta", command = ejecutaConsulta).pack()
+
+columns = ("id", "nombre", "correo", "contra")
+
+tabla = ttk.Treeview(pestana3, columns = columns, show = "headings")
+
+tabla.column("id", anchor=tk.W, width=50)
+tabla.column("nombre", anchor=tk.W, width=150)
+tabla.column("correo", anchor=tk.W, width=150)
+tabla.column("contra", anchor=tk.W, width=200)
+
+tabla.heading("id", text = "ID", )
+tabla.heading("nombre", text = "NOMBRE")
+tabla.heading("correo", text = "CORREO")
+tabla.heading("contra", text = "CONTRASEÑA")
+
+tabla.pack()
 
 #accedemos al panel para agregar las pestañas
 panel.add(pestana1, text = "Formulario de usuarios")

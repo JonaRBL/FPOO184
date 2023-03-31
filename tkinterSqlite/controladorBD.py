@@ -1,6 +1,7 @@
 from tkinter import messagebox
 import sqlite3
 import bcrypt
+import tkinter as tk
 
 class controladorBD:
     
@@ -73,3 +74,15 @@ class controladorBD:
             
             except sqlite3.OperationalError:
                 print("Error de Consulta")
+    
+    def consultasUsuarios(self):
+        conx = self.conexionBD()
+        
+        cursor = conx.cursor()
+        sqlConsulta = "select * from TBRegistros"
+        
+        cursor.execute(sqlConsulta)
+        registros = cursor.fetchall()
+        conx.close()
+        
+        return registros
