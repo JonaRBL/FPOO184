@@ -86,3 +86,58 @@ class controladorBD:
         conx.close()
         
         return registros
+    
+    def actualizarUsuario(self, id, noment, corent, con):
+        conx = self.conexionBD()
+        
+        if(id == "" or noment == "" or corent == "" or con == ""):
+            messagebox.showwarning("Cuidado", "ningun campo puede estar vacio")
+            conx.close()
+        else:
+            try:
+                cursor = conx.cursor()
+                nom = noment
+                correo = corent
+                conH = self.encriptarCont(con)
+                sqlActuali = "UPDATE TBRegistros SET nombre=?, correo=?, contra=? WHERE id=?"
+                
+                cursor.execute(sqlActuali, [nom, correo, conH, id])
+                usuAct = cursor.fetchall()
+                conx.commit()
+                conx.close()
+                messagebox.showinfo("Exito!!", "Datos de usuario actualizados")
+                #noment.delete(0, tk.END)
+                #corent.delete(0, tk.END)
+                #conent.delete(0, tk.END)
+                
+                return usuAct
+            
+            except sqlite3.OperationalError:
+                print("Error de Consulta")
+    
+    def eliminarUsuario(self, id):
+        conx = self.conexionBD()
+        
+        if(id == ""):
+            messagebox.showwarning("Cuidado", "ningun campo puede estar vacio")
+            conx.close()
+        else:
+            try:
+                cursor = conx.cursor()
+                sqlDelete = "DELETE FROM TBRegistros WHERE id=?"
+                
+                cursor.execute(sqlDelete, [id])
+                usuEli = cursor.fetchall()
+                conx.commit()
+                conx.close()
+                messagebox.showinfo("Exito!!", "Usuario eliminado")
+                #noment.delete(0, tk.END)
+                #corent.delete(0, tk.END)
+                #conent.delete(0, tk.END)
+                
+                return usuEli
+            
+            except sqlite3.OperationalError:
+                print("Error de Consulta")
+        
+        
