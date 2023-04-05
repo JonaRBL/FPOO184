@@ -41,13 +41,13 @@ def ejecutaActualizar():
 def ejecutaBusqueda():
     rsUsuario = controlador.consultaUsuario(varID2.get())
     
-    textBus.delete("1.0", "end")
+    textBus2.delete("1.0", "end")
     for usu in rsUsuario:
         cadena = str(usu[0])+" "+ usu[1]+" "+ usu[2]+" "+ str(usu[3])
     
     if(rsUsuario):
         #print(cadena)
-        textBus.insert("0.0", cadena)
+        textBus2.insert("0.0", cadena)
     else:
         messagebox.showinfo("No encontrado", "Usuario no registardo en la BD")
 
@@ -140,7 +140,7 @@ txNom = Entry(pestana4, textvariable = varaNom).pack()
 lanCor = Label(pestana4, text = "Nuevo Correo electronico: ").pack()
 txCor = Entry(pestana4, textvariable = varaCor).pack()
 lanCon = Label(pestana4, text = "Nueva Contraseña: ").pack()
-txCon = Entry(pestana4, textvariable = varaCon).pack()
+txCon = Entry(pestana4, textvariable = varaCon, show = "*").pack()
 
 btnActuali = Button(pestana4, text = "Actualizar", command = ejecutaActualizar).pack()
 
@@ -153,9 +153,9 @@ txtid = Entry(pestana5, textvariable = varID2).pack()
 
 btnBusqueda = Button(pestana5, text = "Buscar", command = ejecutaBusqueda).pack()
 
-subBus = Label(pestana5, text = "Registrado:", fg = "blue", font = ("Modern", 18)).pack()
-textBus = tk.Text(pestana5, height = 2, width = 52)
-textBus.pack()
+subBus2 = Label(pestana5, text = "Registrado:", fg = "blue", font = ("Modern", 18)).pack()
+textBus2 = tk.Text(pestana5, height = 2, width = 52)
+textBus2.pack()
 
 btnBusqueda = Button(pestana5, text = "eliminar", command = ejecutaEliminar).pack()
 
