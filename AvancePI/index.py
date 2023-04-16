@@ -4,12 +4,6 @@ import tkinter as tk
 from PIL import ImageTk, Image
 from ControlBD import *
 
-
-controlador = controladorBD()
-
-def ejecutaInsert():
-    controlador.guardarUsuario(varNom.get(),varAP.get(),varAM.get(),varED.get(),varCor.get())
-
 ventana = Tk()
 ventana.title("Date un roll UPQ")
 ventana.geometry("600x530")
@@ -20,7 +14,6 @@ style = ttk.Style()
 panel = ttk.Notebook(ventana)
 panel.pack(fill= "both", expand = "yes")
 
-pestana1 = tk.Frame(panel, background="red")
 pestana2 = tk.Frame(panel, background="red")
 pestana3 = tk.Frame(panel, background="red")
 pestana4 = tk.Frame(panel, background="red")
@@ -148,33 +141,6 @@ imgBI = imgBI.resize((250,250))
 imagBI = ImageTk.PhotoImage(imgBI)
 canvBI.create_image(1,1,anchor=NW, image=imagBI)#20, 20, anchor=NW, image=img)
 
-#PESTAÑAREGISTROUSUARIOS
-titulo= Label(pestana1,text="Registra tu acceso UPQ", bg="red", fg="blue", font=("Arial",18)).pack()
-
-varNom= tk.StringVar()
-iblNom= Label(pestana1, text="Nombre(s): ", bg = "red").pack()
-txtNom= Entry(pestana1, textvariable=varNom).pack()
-
-varAP= tk.StringVar()
-iblAP= Label(pestana1, text="Apellido Paterno: ", bg = "red").pack()
-txtAP= Entry(pestana1, textvariable=varAP).pack()
-
-varAM= tk.StringVar()
-iblAM= Label(pestana1, text="Apellido Materno: ", bg = "red").pack()
-txtAM= Entry(pestana1, textvariable=varAM).pack()
-
-varED= tk.StringVar()
-iblED= Label(pestana1, text="Edad: ", bg = "red").pack()
-txtED= Entry(pestana1, textvariable=varED).pack()
-
-varCor= tk.StringVar()
-iblCor= Label(pestana1, text="Correo electronico: ", bg = "red").pack()
-txtCor= Entry(pestana1, textvariable=varCor).pack()
-
-
-btnGuardar= Button(pestana1, text="Registrarse",command=ejecutaInsert).pack()
-
-panel.add(pestana1, text = "Acceso usuarios")
 panel.add(pestana2, text = "LT1")
 panel.add(pestana3, text = "Talleres")
 panel.add(pestana4, text = "Edificio A")
